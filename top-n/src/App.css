@@ -16,7 +16,10 @@
 }
 
 .company {
-  padding: 20px;
+  padding: 10px 40px;
+}
+.category {
+  padding: 10px 40px;
 }
 
 .product-container span {
