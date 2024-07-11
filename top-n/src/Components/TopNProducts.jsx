@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function TopNProducts() {
-  const [products, SetProducts] = useState({});
+  const [products, SetProducts] = useState([]);
   const [topN, setTopN] = useState(0);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
@@ -31,8 +31,7 @@ function TopNProducts() {
   const GetProducts = async () => {
     // const company = "Afford Medicals";
     const api = `http://20.244.56.144/test/companies/{company}/categories/{categoryName}/products?top=${topN}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
-    const accessToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzIwNjg5MzgxLCJpYXQiOjE3MjA2ODkwODEsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6IjEzZTg3M2ViLWJhZTEtNDU2My1hYzNiLTFiMDBkYzI1NGIzZSIsInN1YiI6InNoaXZhbWEuMjEuYmVjc0BhY2hhcnlhLmFjLmluIn0sImNvbXBhbnlOYW1lIjoiQWZmb3JkIE1lZGljYWxzIiwiY2xpZW50SUQiOiIxM2U4NzNlYi1iYWUxLTQ1NjMtYWMzYi0xYjAwZGMyNTRiM2UiLCJjbGllbnRTZWNyZXQiOiJNV1pFV3hERWpWbUFFbVFFIiwib3duZXJOYW1lIjoiU2hpdmFtIiwib3duZXJFbWFpbCI6InNoaXZhbWEuMjEuYmVjc0BhY2hhcnlhLmFjLmluIiwicm9sbE5vIjoiQUlUMjFCRUNTMTMzIn0.9xH4GAVpdOLRpI4HnmeDuaLVyCOv4vLaXzibn0xFWQM";
+    const accessToken = process.env.REACT_APP_ACCESS_TOKEN;
 
     try {
       const res = await axios.get(api, {
@@ -117,6 +116,10 @@ function TopNProducts() {
                 <div className="product-name">{product.productName}</div>
                 <div className="product-price">{product.price}</div>
                 <div className="product-rating">{product.rating}</div>
+                <div className="product-company">{product.discount}</div>
+                <div className="product-availability">
+                  {product.availability}
+                </div>
               </div>
             ))}
           </div>
