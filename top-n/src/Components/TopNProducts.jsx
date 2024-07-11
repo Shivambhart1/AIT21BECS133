@@ -37,12 +37,17 @@ function TopNProducts() {
     const api = `http://20.244.56.144/test/companies/${company}/categories/${category}/products?top=${topN}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
     const accessToken = process.env.REACT_APP_ACCESS_TOKEN;
 
+    const headers = {
+      companyName: "Afford Medicals",
+      ownerName: "Shivam",
+      rollNo: "AIT21BECS133",
+      ownerEmail: "shivama.21.becs@acharya.ac.in",
+      accessCode: "nxJaiY",
+      Authorization: `Bearer ${accessToken}`,
+    };
+
     try {
-      const res = await axios.get(api, {
-        headers: {
-          Authorization: accessToken,
-        },
-      });
+      const res = await axios.get(api, { headers: headers });
       setFetchedData(res.data);
       console.log(res.data);
     } catch (err) {
