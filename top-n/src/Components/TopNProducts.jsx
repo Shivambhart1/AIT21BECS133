@@ -44,18 +44,9 @@ function TopNProducts() {
     <>
       <div className="main-container">
         <h1>Page for displaying specific products</h1>
-        <div className="product-div">
-          <div>
-            <span>Company Name: </span>{" "}
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder="AMZ, FLP, SNP, MYN, AZO"
-            />
-          </div>
-          <div>
-            <span>Product name: </span>
+        <div className="product-container">
+          <div className="product-div">
+            <span>Product : </span>
             <select name="" id="">
               {companyNames.map((company, index) => (
                 <option key={index} value={company} className="company">
@@ -70,7 +61,34 @@ function TopNProducts() {
                 </option>
               ))}
             </select>
+            <div>
+              <span>Top : </span>{" "}
+              <input
+                type="text"
+                placeholder="n products"
+                value={topN}
+                onChange={(e) => setTopN(e.target.value)}
+              />
+            </div>
+
+            <div className="price-div">
+              <span>Price : </span>
+              <input
+                type="text"
+                placeholder="min price"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+              />
+              to
+              <input
+                type="text"
+                placeholder="max price"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+              />
+            </div>
           </div>
+          <button className="btn">Submit</button>
         </div>
       </div>
     </>

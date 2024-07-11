@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.product-div {
+.product-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,12 +19,31 @@
   padding: 20px;
 }
 
-.product-div span {
+.product-container span {
   font-size: 25px;
 }
 
-.product-div input {
+.product-container input {
   padding: 10px 20px;
+}
+
+.product-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 50px;
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion: no-preference) {
