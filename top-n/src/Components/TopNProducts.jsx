@@ -7,6 +7,7 @@ function TopNProducts() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
   const [company, setCompany] = useState("");
+  const [category, setCategory] = useState("");
   const [fetchedData, SetFetchedData] = useState([{}]);
   const companyNames = ["AMZ", "FLP", "SNP", "MYN", "AZO"];
   const Categories = [
@@ -30,7 +31,7 @@ function TopNProducts() {
 
   const GetProducts = async () => {
     // const company = "Afford Medicals";
-    const api = `http://20.244.56.144/test/companies/{company}/categories/{categoryName}/products?top=${topN}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
+    const api = `http://20.244.56.144/test/companies/${company}/categories/${category}/products?top=${topN}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
     const accessToken = process.env.REACT_APP_ACCESS_TOKEN;
 
     try {
@@ -70,7 +71,12 @@ function TopNProducts() {
                   </option>
                 ))}
               </select>
-              <select name="" id="" className="category">
+              <select
+                name=""
+                id=""
+                className="category"
+                onChange={(e) => setCategory(e.target.value)}
+              >
                 {Categories.map((category, index) => (
                   <option key={index} value={category} className="category">
                     {category}
