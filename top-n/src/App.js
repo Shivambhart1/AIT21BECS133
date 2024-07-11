@@ -1,10 +1,10 @@
 import "./App.css";
-import Component from "./Components/Component";
+import TopNProducts from "./Components/TopNProducts";
 
 function App() {
   return (
     <div className="App">
-      <Component />
+      <TopNProducts />
     </div>
   );
 }
