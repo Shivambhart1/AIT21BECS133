@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { companyNames, Categories } from "../values";
 
 function TopNProducts() {
   const [products, setProducts] = useState([]);
@@ -9,24 +10,6 @@ function TopNProducts() {
   const [company, setCompany] = useState("");
   const [category, setCategory] = useState("");
   const [fetchedData, setFetchedData] = useState([]);
-  const companyNames = ["AMZ", "FLP", "SNP", "MYN", "AZO"];
-  const Categories = [
-    "Phone",
-    "Computer",
-    "TV",
-    "Earphone",
-    "Tablet",
-    "Charger",
-    "Mouse",
-    "Keypad",
-    "Bluetooth",
-    "Pendrive",
-    "Remote",
-    "Speaker",
-    "Headset",
-    "Laptop",
-    "PC",
-  ];
 
   const handleGetProducts = async () => {
     if (!company || !category) {
@@ -43,7 +26,7 @@ function TopNProducts() {
       rollNo: "AIT21BECS133",
       ownerEmail: "shivama.21.becs@acharya.ac.in",
       accessCode: "nxJaiY",
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `${accessToken}`,
     };
 
     try {
