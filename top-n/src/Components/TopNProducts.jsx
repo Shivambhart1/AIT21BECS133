@@ -7,6 +7,7 @@ function TopNProducts() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
   const [company, setCompany] = useState("");
+  const [fetchedData, SetFetchedData] = useState({});
   const companyNames = ["AMZ", "FLP", "SNP", "MYN", "AZO"];
   const Categories = [
     "Phone",
@@ -36,10 +37,11 @@ function TopNProducts() {
     try {
       const res = await axios.get(api, {
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
+          // "Content-Type": "application/json",
+          Authorization: accessToken,
         },
       });
+      SetFetchedData(res.data);
       console.log(res.data);
     } catch (err) {
       console.log(err);
@@ -108,6 +110,19 @@ function TopNProducts() {
             Submit
           </button>
         </div>
+        {fetchedData.products ? (
+          <div className="product-list">
+            {fetchedData.products.map((product, index) => (
+              <div key={index} className="product">
+                <div className="product-name">{product.productName}</div>
+                <div className="product-price">{product.price}</div>
+                <div className="product-rating">{product.rating}</div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

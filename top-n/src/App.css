@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.product-container {
+/* .product-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,6 +47,85 @@
   color: white;
   border: none;
   cursor: pointer;
+} */
+
+/* styles.css */
+
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.product-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-div {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.select-div select {
+  margin: 0 10px;
+  padding: 5px;
+}
+
+.price-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.price-div input {
+  margin: 0 5px;
+  padding: 5px;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.result-div {
+  margin-top: 20px;
+}
+
+.product-card {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.product-price {
+  color: green;
 }
 
 @media (prefers-reduced-motion: no-preference) {
