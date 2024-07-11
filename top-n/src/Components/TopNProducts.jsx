@@ -34,11 +34,7 @@ function TopNProducts() {
       return;
     }
 
-    const api = `http://20.244.56.144/test/companies/${encodeURIComponent(
-      company
-    )}/categories/${encodeURIComponent(
-      category
-    )}/products?top=${topN}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
+    const api = `http://20.244.56.144/test/companies/${company}/categories/${category}/products?top=${topN}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
     const accessToken = process.env.REACT_APP_ACCESS_TOKEN;
 
     try {
@@ -51,8 +47,6 @@ function TopNProducts() {
       console.log(res.data);
     } catch (err) {
       console.error("Error fetching products:", err);
-    } finally {
-      console.log("Request completed");
     }
   };
 
