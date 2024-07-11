@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function TopNProducts() {
-  const [products, SetProducts] = useState([]);
+  // const [products, SetProducts] = useState([]);
   const [topN, setTopN] = useState(0);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
   const [company, setCompany] = useState("");
-  const [fetchedData, SetFetchedData] = useState({});
+  const [fetchedData, SetFetchedData] = useState([{}]);
   const companyNames = ["AMZ", "FLP", "SNP", "MYN", "AZO"];
   const Categories = [
     "Phone",
@@ -109,7 +109,7 @@ function TopNProducts() {
             Submit
           </button>
         </div>
-        {fetchedData.products ? (
+        {fetchedData.products && (
           <div className="product-list">
             {fetchedData.products.map((product, index) => (
               <div key={index} className="product">
@@ -123,8 +123,6 @@ function TopNProducts() {
               </div>
             ))}
           </div>
-        ) : (
-          ""
         )}
       </div>
     </>
